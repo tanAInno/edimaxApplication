@@ -7,12 +7,16 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import ServiceTab from './tabs/service';
 import MonitorTab from './tabs/monitor';
+import ProductTab from './tabs/product';
 import axios from 'react-native-axios';
+import { Right, Header } from 'native-base';
+import AppHeader from './components/header'
 
 class ServiceScreen extends Component {
   render() {
     return (
       <View style={styles.serviceContainer}>
+        <AppHeader />
         <ServiceTab />
       </View>
     );
@@ -23,6 +27,8 @@ class ProductScreen extends Component {
   render() {
     return (
       <View style={styles.productContainer}>
+        <AppHeader />
+        <ProductTab />
       </View>
     );
   }
@@ -32,6 +38,7 @@ class MonitorScreen extends Component {
   render() {
     return (
       <View style={styles.monitorContainer}>
+        <AppHeader />
         <MonitorTab />
       </View>
     );
@@ -42,6 +49,7 @@ class BlogScreen extends Component {
   render() {
     return (
       <View style={styles.blogContainer}>
+        <AppHeader />
       </View>
     );
   }
@@ -80,30 +88,22 @@ export default createAppContainer(TabNavigator);
 const styles = StyleSheet.create({
   serviceContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#7FD0DA",
+    backgroundColor: "#EFEFEF",
   },
 
   productContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#13304F",
+    backgroundColor: "#EFEFEF",
   },
 
   monitorContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#7FD0DA",
+    backgroundColor: "#EFEFEF",
   },
 
   blogContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#9AABB4",
+    backgroundColor: "#EFEFEF",
   },
 
 });
