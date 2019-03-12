@@ -12,6 +12,7 @@ import axios from 'react-native-axios';
 import { Right, Header } from 'native-base';
 import AppHeader from './components/header'
 
+
 class ServiceScreen extends Component {
   render() {
     return (
@@ -70,6 +71,7 @@ const TabNavigator = createBottomTabNavigator({
         } else if (routeName === 'Product') {
           return <FontAwesome name="shopping-cart" size={20} color={tintColor} />
         } else if (routeName === 'Monitor') {
+          console.log('monitor')
           return <Foundation name="graph-trend" size={25} color={tintColor} />
         } else if (routeName === 'Blog') {
           return <MaterialCommunityIcons name="blogger" size={25} color={tintColor} />

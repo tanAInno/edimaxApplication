@@ -20,11 +20,12 @@ class ServiceTab extends Component {
     }
 
     addService(isOn, value) {
+        console.log(value)
         const services = this.props.service
         if (isOn)
             services.push(value)
         else
-            services.splice(value, 1)
+            services.splice(services.indexOf(value), 1)
         this.props.setService(services)
         console.log(services)
     }

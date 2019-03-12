@@ -20,7 +20,7 @@ class CallService extends Component {
         return (
             <View style={styles.container}>
                 <SideHeader />
-                <Text style={styles.headerText}>จอง Service ล้างแอร์</Text>
+                <Text style={styles.headerText}>จอง Service</Text>
                 <Text style={styles.headerText}>({this.props.service})</Text>
                 <View style={styles.inputView}>
                     <Text style={styles.inputText}>กำหนดวันนัดหมาย</Text>

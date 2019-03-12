@@ -9,6 +9,7 @@ import SideHeader from '../components/sideheader';
 class Shopping extends Component {
 
     render() {
+        let total = 0
         return (
             <View style={styles.container}>
                 <SideHeader />
@@ -18,19 +19,21 @@ class Shopping extends Component {
                         <Text style={styles.shoppingHeader}>Total in Cart</Text>
                     </View>
                     <View style={styles.shoppingTable}>
-                        <Text style={styles.shoppingTableName}>Name</Text>
-                        <Text style={styles.shoppingTableAmount}>Amount</Text>
-                        <Text style={styles.shoppingTablePrice}>Price</Text>
+                        <Text style={styles.shoppingTableName}>ชื่อ Product</Text>
+                        <Text style={styles.shoppingTableAmount}>จำนวน</Text>
+                        <Text style={styles.shoppingTablePrice}>ราคา</Text>
                     </View>
                     {this.props.shopping.map((data, index) => {
+                        total += data.price * data.amount
                         return (
                             <View style={styles.shoppingCard}>
                                 <Text style={styles.shoppingCardName}>{data.name}</Text>
                                 <Text style={styles.shoppingCardAmount}>{data.amount}</Text>
-                                <Text style={styles.shoppingCardPrice}>{data.price * data.amount}</Text>
+                                <Text style={styles.shoppingCardPrice}>{data.price * data.amount} บาท</Text>
                             </View>
                         )
                     })}
+                    <Text style={styles.totalText}>รวมสุทธิ {total} บาท</Text>
                     <View style={styles.shoppingButton}>
                         <Button style={styles.confirmButton}>
                             <Text style={styles.buttonText}>Confirm</Text>
@@ -97,13 +100,13 @@ const styles = StyleSheet.create({
         color: '#272727'
     },
     shoppingTablePrice: {
-        width: '21.5%',
+        width: '26.5%',
         fontSize: 18,
         color: '#272727',
-        textAlign: 'center'
+        marginLeft: '2.5%'
     },
     shoppingTableAmount: {
-        width: '21.5%',
+        width: '16.5%',
         fontSize: 18,
         color: '#272727',
         textAlign: 'center'
@@ -122,13 +125,13 @@ const styles = StyleSheet.create({
         color: '#272727'
     },
     shoppingCardPrice: {
-        width: '21.5%',
+        width: '26.5%',
         fontSize: 18,
         color: '#272727',
         textAlign: 'center'
     },
     shoppingCardAmount: {
-        width: '21.5%',
+        width: '16.5%',
         fontSize: 18,
         color: '#272727',
         textAlign: 'center'
@@ -138,6 +141,13 @@ const styles = StyleSheet.create({
         marginTop: 15,
         marginBottom: 15,
         justifyContent: 'flex-end'
+    },
+    totalText: {
+        marginTop: 15,
+        marginRight: 5,
+        alignSelf: 'flex-end',
+        fontSize: 18,
+        color: '#272727'
     },
     confirmButton: {
         width: 70,
