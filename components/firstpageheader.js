@@ -4,13 +4,13 @@ import { Left, Body, Right, Header } from 'native-base';
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { Actions } from 'react-native-router-flux'
 
-class SideHeader extends Component {
+class FirstPageHeader extends Component {
 
     render() {
         return (
             <Header style={styles.header}>
                 <Left>
-                    <TouchableOpacity style={styles.backArrow} onPress={() => Actions.MainScreen()}>
+                    <TouchableOpacity style={styles.backArrow} onPress={() => Actions.Login()}>
                         <Ionicons name="ios-arrow-back" size={30} color="#13304F" />
                     </TouchableOpacity>
                 </Left>
@@ -25,7 +25,7 @@ class SideHeader extends Component {
 
 }
 
-export default SideHeader
+export default FirstPageHeader
 
 const styles = StyleSheet.create({
     header: {

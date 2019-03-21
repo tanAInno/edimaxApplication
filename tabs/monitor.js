@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, ScrollView, Text, Dimensions, PixelRatio, View } from 'react-native';
+import { ActivityIndicator, Platform, StyleSheet, ScrollView, Text, Dimensions, PixelRatio, View } from 'react-native';
 import { Tab, Tabs, Button } from 'native-base';
 import axios from 'react-native-axios';
 import { connect } from 'react-redux';
@@ -272,19 +272,19 @@ class MonitorTab extends Component {
     renderButtonPM(text, data, index) {
         if (data <= 50)
             return (
-                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data > 50 && data <= 100)
             return (
-                <Button style={styles.buttonYellow} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonYellow} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data > 100 && data <= 150)
             return (
-                <Button style={styles.buttonOrange} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonOrange} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
@@ -311,19 +311,19 @@ class MonitorTab extends Component {
     renderButtonCO2(text, data, index) {
         if (data <= 1000)
             return (
-                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data > 1000 && data <= 2000)
             return (
-                <Button style={styles.buttonYellow} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonYellow} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data > 2000 && data <= 5000)
             return (
-                <Button style={styles.buttonRed} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonRed} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
@@ -338,19 +338,19 @@ class MonitorTab extends Component {
     renderButtonTVOC(text, data, index) {
         if (data < 300)
             return (
-                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data >= 300 && data < 500)
             return (
-                <Button style={styles.buttonYellow} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonYellow} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data >= 500 && data < 1000)
             return (
-                <Button style={styles.buttonOrange} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonOrange} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
@@ -371,19 +371,19 @@ class MonitorTab extends Component {
     renderButtonTemp(text, data, index) {
         if (data <= 23)
             return (
-                <Button style={styles.buttonCool} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonCool} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data > 23 && data <= 27)
             return (
-                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data > 27)
             return (
-                <Button style={styles.buttonRed} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonRed} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
@@ -392,25 +392,26 @@ class MonitorTab extends Component {
     renderButtonHumid(text, data, index) {
         if (data > 70)
             return (
-                <Button style={styles.buttonCool} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonCool} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data >= 30 && data <= 70)
             return (
-                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonGreen} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
         if (data < 30)
             return (
-                <Button style={styles.buttonRed} onPress={() => this.setState({ index: index })}>
+                <Button style={styles.buttonRed} onPress={() => this.setState({ index: index },() => console.log(this.state.index))}>
                     <Text style={styles.buttonText}>{text}</Text>
                 </Button>
             )
     }
 
     renderTabs() {
+        console.log('render=',this.state.index)
         if (this.props.edimaxdata.length != 0) {
             return (
                 <Tabs initialPage={0}>
@@ -425,6 +426,7 @@ class MonitorTab extends Component {
                                     loop={false}
                                     height={Dimensions.get('window').height / 2.3}
                                     backgroundColor={'#283743'}
+                                    showsPagination={false}
                                 >
                                     {this.renderPMItem(data.pm1, 'PM1')}
                                     {this.renderPMItem(data.pm25, 'PM2.5')}
@@ -455,7 +457,11 @@ class MonitorTab extends Component {
             )
         }
         else {
-            return (<View />)
+            return (
+                <View style={styles.loadingView}>
+                    <ActivityIndicator style={{marginBottom: 180}} size='large' color='#13304F'/>
+                </View>
+            )
         }
     }
 
@@ -488,6 +494,13 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
         backgroundColor: "#EFEFEF",
+    },
+    loadingView: {
+        flexDirection: 'column',
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     tabText: {
         color: 'white',

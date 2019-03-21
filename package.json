@@ -8,9 +8,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "link": "^0.1.5",
     "native-base": "^2.12.0",
     "react": "16.6.3",
-    "react-native": "0.58.5",
+    "react-native": "^0.58.5",
     "react-native-axios": "^0.17.1",
     "react-native-css-transformer": "^1.2.4",
     "react-native-datepicker": "^1.7.2",
